@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+<h:head>
+  <STYLE type="text/css">
+    #navegacion {
+       list-style:none;
+    }
+    
+    #navegacion li {
+      display:inline;
+      margin-left:20px;
+      background-color:black;
+      padding:10px;
+      border-radius:10px;
+    }
+  </STYLE>
+</h:head>
+<ul id="navegacion">
+     <li><h:link outcome="/index.xhtml" value="Listado Personas" class="text-light"/> </li>
+     <li><h:link outcome="/vistas/nuevaPersona.xhtml" value="Nueva Persona" class="text-light"/> </li>
+     <li><h:link outcome="/vistas/busquedaPersonas.xhtml" value="Buscar Personas" class="text-light"/> </li>
+     <li><h:link outcome="/vistas/elegirMaestroDetalle.xhtml" value="Ver Personas Por Oficio" class="text-light"/> </li>
+     <li><h:link outcome="/vistas/eliminarMuchasPersonas.xhtml" value="Eliminar multiples personas" class="text-light"/> </li>
+   </ul><br />
+</html>
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
+  rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"/>
+</h:head> 
+<h:body class="bg-warning">
+   <div class="container mt-3">
+     <ui:include src="/recursos/plantillas/menu.xhtml" />
+     <h:form class="bg-light p-3 w-25" id="formux">
+        <h:outputLabel value="Lista de oficios: " />
+        <h:selectOneMenu value="#{backingPeopleByOficioCombo.idJob}" class="form-select">
+           <f:selectItem itemValue="1" itemLabel="-- Elige un oficio"/>
+           <f:selectItems value="#{backingPeopleByOficioCombo.listaOficios}" var="job"
+           itemValue="#{job.idOficio}" itemLabel="#{job.descripcion}"/>
+            <f:ajax event="change" execute="formux"
+              listener="#{backingPeopleByOficioCombo.searchPeopleByOficio()}"
+              render="formux listpeople"/>
+        </h:selectOneMenu>
+        <br /><br />
+        <h:outputLabel value="Lista personas con oficio: '#{backingPeopleByOficioCombo.eloficio.descripcion}'" />
+        <h:selectOneMenu value="#{backingPeopleByOficioCombo.namepeople}" class="form-select">
+            <f:selectItems value="#{backingPeopleByOficioCombo.personasByOficio}" var="persona"
+            itemValue="#{persona.nombre}" itemLabel="#{persona.nombre}" id="listpeople"/>
+        </h:selectOneMenu>
+     </h:form>
+   </div>
+</h:body>
+</html>
